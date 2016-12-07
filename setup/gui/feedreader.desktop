@@ -14,5 +14,5 @@ Actions=AboutDialog;
 MimeType=x-scheme-handler/feedreader;
 
 [Desktop Action AboutDialog]
-Exec=feedreader --about
+Exec=feedreader-snap.feedreader --about
 Name=About FeedReader
