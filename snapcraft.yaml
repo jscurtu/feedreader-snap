@@ -10,13 +10,17 @@ confinement: devmode # use 'strict' once you have the right plugs and slots
 apps:
   feedreader-snap:
     command: desktop-launch feedreader
-    plugs: [home, unity7, x11, gsettings, network]
-
+    plugs: [unity7, x11, gsettings, network]
+#  feedreader-snap-daemon:
+#    command: feedreader-daemon
+#    daemon: simple
+#    plugs: [network]
 
 parts:
   feedreader:
     plugin: cmake
     source: https://github.com/jangernert/FeedReader.git
+    configflags: ["-DCMAKE_INSTALL_PREFIX=/usr"]
     build-packages:
       - build-essential
       - cmake
@@ -40,3 +44,5 @@ parts:
       - libgoa-1.0-dev
       - libunity-dev
     after: [desktop-gtk3]
+    stage-packages:
+      - libwebkit2gtk-4.0-37
